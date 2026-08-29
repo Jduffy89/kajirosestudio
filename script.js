@@ -29,7 +29,7 @@ function renderProducts(filter='all'){
   products.filter(p=>filter==='all'||p.category===filter).forEach(p=>{
     const prices=p.variants.map(v=>v[1]).filter(v=>v!=null), start=prices.length?Math.min(...prices):null;
     const card=document.createElement('article'); card.className='product-card';
-    card.innerHTML=`<div class="product-art">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}<div class="product-emoji">${p.icon}</div></div><div class="product-info"><h3>${p.name}</h3><p>${p.desc}</p><div class="product-bottom"><span class="price">${start==null?'Price TBD':(p.variants.length>1?`From ${money(start)}`:money(start))}</span><button class="customize-btn" data-product-id="${p.id}">Customize</button></div></div>`;
+    card.innerHTML=`<div class="product-art">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}${p.image?`<img class="product-photo" src="${p.image}" alt="${p.name} example" />`:`<div class="product-emoji">${p.icon}</div>`}</div><div class="product-info"><h3>${p.name}</h3><p>${p.desc}</p><div class="product-bottom"><span class="price">${start==null?'Price TBD':(p.variants.length>1?`From ${money(start)}`:money(start))}</span><button class="customize-btn" data-product-id="${p.id}">Customize</button></div></div>`;
     grid.appendChild(card);
   });
   document.querySelectorAll('[data-product-id]').forEach(btn=>btn.addEventListener('click',()=>openCustomizer(btn.dataset.productId)));
@@ -62,4 +62,10 @@ requestForm.addEventListener('submit',async e=>{
 
 document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderProducts(btn.dataset.filter);}));
 const menuToggle=document.getElementById('menuToggle'),mainNav=document.getElementById('mainNav');menuToggle.addEventListener('click',()=>{const open=mainNav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));});mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));
+document.querySelectorAll('[data-category-jump]').forEach(btn=>btn.addEventListener('click',()=>{
+  const category=btn.dataset.categoryJump;
+  document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter===category));
+  renderProducts(category);
+  document.getElementById('productGrid').scrollIntoView({behavior:'smooth',block:'start'});
+}));
 document.getElementById('year').textContent=new Date().getFullYear();populateProductSelect();renderProducts();updateVariants();
