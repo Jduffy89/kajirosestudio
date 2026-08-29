@@ -97,3 +97,7 @@ footer{background:#2f2a2b;color:#f8f3f2;padding:54px 0 22px}.footer-grid{display
 .category-tile:hover{transform:translateY(-3px);border-color:var(--sage)}.category-tile img{display:block;width:100%;height:145px;object-fit:cover}.category-tile span{display:block;padding:13px 8px}
 .product-art{height:205px;overflow:hidden;position:relative;background:var(--blush-soft)}.product-photo{width:100%;height:100%;display:block;object-fit:cover;transition:transform .3s ease}.product-card:hover .product-photo{transform:scale(1.035)}.product-badge{z-index:2}
 @media(max-width:950px){.category-showcase{grid-template-columns:repeat(3,1fr)}}@media(max-width:620px){.category-showcase{grid-template-columns:repeat(2,1fr)}.category-tile img{height:125px}.hero-lifestyle{height:330px}.hero-logo-float{width:115px;left:14px;top:14px}}
+
+/* Individual product imagery */
+.product-card .product-art{background:#fffaf8}
+.product-card .product-photo{object-fit:cover}
