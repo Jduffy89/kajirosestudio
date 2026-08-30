@@ -114,3 +114,15 @@ footer{background:#2f2a2b;color:#f8f3f2;padding:54px 0 22px}.footer-grid{display
 .customization-context{padding:16px;border:1px solid rgba(154,169,123,.35);background:var(--sage-soft);border-radius:18px}
 .customization-context label{font-weight:700}
 .customization-context small{display:block;font-weight:400;color:var(--muted);line-height:1.45;margin-top:6px}
+
+/* Make hero Customize button sage green */
+.hero .btn-secondary {
+    background: var(--sage);
+    color: #fff;
+    border-color: var(--sage);
+}
+
+.hero .btn-secondary:hover {
+    background: var(--sage-deep);
+    color: #fff;
+}
