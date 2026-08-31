@@ -13,7 +13,7 @@ const products = [
 ];
 
 const siteConfig = {
-  facebookPageUrl: '', // Paste the Kaji Rose Studio Facebook Page or Messenger URL here.
+  facebookPageUrl: 'https://www.facebook.com/kajirosestudio/', // Paste the Kaji Rose Studio Facebook Page or Messenger URL here.
 };
 
 const grid=document.getElementById('productGrid'), modal=document.getElementById('customizerModal'), backdrop=document.getElementById('customizerBackdrop');
