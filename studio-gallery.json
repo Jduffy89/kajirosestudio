@@ -2,59 +2,579 @@
   "items": [
     {
       "type": "image",
-      "src": "assets/product-blanket-logo.jpg",
-      "caption": "Custom blanket sample",
-      "alt": "Kaji Rose Studio custom blanket sample",
-      "collection": "Blankets"
+      "src": "assets/gallery-068.jpg",
+      "caption": "Personalized printed character blanket",
+      "alt": "Personalized printed character blanket",
+      "collection": "Blankets",
+      "category": "blankets"
     },
     {
       "type": "image",
-      "src": "assets/product-tumbler-logo.jpg",
-      "caption": "Personalized tumbler sample",
-      "alt": "Kaji Rose Studio tumbler sample",
-      "collection": "Drinkware"
+      "src": "assets/gallery-070.jpg",
+      "caption": "Green-and-black graphic tumbler",
+      "alt": "Green-and-black graphic tumbler",
+      "collection": "Tumblers",
+      "category": "tumblers"
     },
     {
       "type": "image",
-      "src": "assets/product-adult-tshirt.jpg",
-      "caption": "Custom adult T-shirt sample",
-      "alt": "Kaji Rose Studio custom adult T-shirt sample",
-      "collection": "Apparel"
+      "src": "assets/gallery-038.jpg",
+      "caption": "Personalized drawstring backpack",
+      "alt": "Personalized drawstring backpack",
+      "collection": "Bags and accessories",
+      "category": "accessories"
     },
     {
       "type": "image",
-      "src": "assets/product-baby-onesie.jpg",
-      "caption": "Baby onesie sample",
-      "alt": "Kaji Rose Studio baby onesie sample",
-      "collection": "Baby & Kids"
+      "src": "assets/gallery-001.jpg",
+      "caption": "Sunshine Squad logo T-shirt",
+      "alt": "Sunshine Squad logo T-shirt",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "video",
+      "src": "assets/gallery-video-sunshine-packing.mp4",
+      "poster": "assets/gallery-video-sunshine-packing-poster.jpg",
+      "caption": "Sunshine Squad merchandise packing video",
+      "collection": "Behind the scenes",
+      "category": "sunshine"
     },
     {
       "type": "image",
-      "src": "assets/product-kids-tshirt.jpg",
-      "caption": "Kids T-shirt sample",
-      "alt": "Kaji Rose Studio kids T-shirt sample",
-      "collection": "Apparel"
+      "src": "assets/gallery-019.jpg",
+      "caption": "Holiday themed custom blanket",
+      "alt": "Holiday themed custom blanket",
+      "collection": "Blankets",
+      "category": "blankets"
     },
     {
       "type": "image",
-      "src": "assets/product-tote-logo.jpg",
-      "caption": "Custom tote bag sample",
-      "alt": "Kaji Rose Studio tote bag sample",
-      "collection": "Bags"
+      "src": "assets/gallery-046.jpg",
+      "caption": "Pink custom graphic T-shirt",
+      "alt": "Pink custom graphic T-shirt",
+      "collection": "Apparel",
+      "category": "apparel"
     },
     {
       "type": "image",
-      "src": "assets/product-beach-towel-logo.jpg",
-      "caption": "Personalized beach towel sample",
-      "alt": "Kaji Rose Studio beach towel sample",
-      "collection": "Accessories"
+      "src": "assets/gallery-002.jpg",
+      "caption": "Sunshine Squad embroidered beanie",
+      "alt": "Sunshine Squad embroidered beanie",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
     },
     {
       "type": "image",
-      "src": "assets/product-water-bottle-plastic.jpg",
-      "caption": "Water bottle sample",
-      "alt": "Kaji Rose Studio personalized water bottle sample",
-      "collection": "Drinkware"
+      "src": "assets/gallery-003.jpg",
+      "caption": "Sunshine Squad rainbow tote bag",
+      "alt": "Sunshine Squad rainbow tote bag",
+      "collection": "Sunshine Squad bags",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-071.jpg",
+      "caption": "Character-inspired stainless tumbler",
+      "alt": "Character-inspired stainless tumbler",
+      "collection": "Tumblers",
+      "category": "tumblers"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-033.jpg",
+      "caption": "Heart-pattern personalized blanket",
+      "alt": "Heart-pattern personalized blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-039.jpg",
+      "caption": "Coordinated custom graphic T-shirts",
+      "alt": "Coordinated custom graphic T-shirts",
+      "collection": "Apparel",
+      "category": "apparel"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-057.jpg",
+      "caption": "Sunshine Squad pink T-shirt",
+      "alt": "Sunshine Squad pink T-shirt",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-050.jpg",
+      "caption": "Personalized baby bodysuit",
+      "alt": "Personalized baby bodysuit",
+      "collection": "Baby apparel",
+      "category": "apparel"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-016.jpg",
+      "caption": "Custom fantasy portrait artwork",
+      "alt": "Custom fantasy portrait artwork",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-035.jpg",
+      "caption": "Fourth of July personalized handprint art",
+      "alt": "Fourth of July personalized handprint art",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-004.jpg",
+      "caption": "Sunshine Squad purple T-shirt",
+      "alt": "Sunshine Squad purple T-shirt",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-069.jpg",
+      "caption": "Custom name-print blanket",
+      "alt": "Custom name-print blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-006.jpg",
+      "caption": "Sunshine Squad wristband",
+      "alt": "Sunshine Squad wristband",
+      "collection": "Sunshine Squad accessories",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-051.jpg",
+      "caption": "Rainbow unicorn name artwork",
+      "alt": "Rainbow unicorn name artwork",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-009.jpg",
+      "caption": "Fairytale birthday photo design",
+      "alt": "Fairytale birthday photo design",
+      "collection": "Birthday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-055.jpg",
+      "caption": "Sunshine Squad purple shirt mockup",
+      "alt": "Sunshine Squad purple shirt mockup",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-053.jpg",
+      "caption": "Grandmother-themed photo keepsake",
+      "alt": "Grandmother-themed photo keepsake",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-034.jpg",
+      "caption": "Sunshine Squad beanie product photo",
+      "alt": "Sunshine Squad beanie product photo",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-040.jpg",
+      "caption": "Personalized mascot-style blanket",
+      "alt": "Personalized mascot-style blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-005.jpg",
+      "caption": "Sunshine Squad promotional design",
+      "alt": "Sunshine Squad promotional design",
+      "collection": "Sunshine Squad artwork",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-007.jpg",
+      "caption": "Mardi Gras themed custom artwork",
+      "alt": "Mardi Gras themed custom artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-008.jpg",
+      "caption": "Personalized pink keepsake artwork",
+      "alt": "Personalized pink keepsake artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-010.jpg",
+      "caption": "Personalized race-car birthday art",
+      "alt": "Personalized race-car birthday art",
+      "collection": "Birthday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-011.jpg",
+      "caption": "Custom pink themed graphic design",
+      "alt": "Custom pink themed graphic design",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-012.jpg",
+      "caption": "Pink and purple custom poem design",
+      "alt": "Pink and purple custom poem design",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-013.jpg",
+      "caption": "Bright blue personalized keepsake art",
+      "alt": "Bright blue personalized keepsake art",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-014.jpg",
+      "caption": "Floral pink personalized blanket design",
+      "alt": "Floral pink personalized blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-015.jpg",
+      "caption": "Blue character birthday blanket",
+      "alt": "Blue character birthday blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-017.jpg",
+      "caption": "Anime-inspired personalized blanket design",
+      "alt": "Anime-inspired personalized blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-018.jpg",
+      "caption": "Personalized heart-print blanket",
+      "alt": "Personalized heart-print blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-020.jpg",
+      "caption": "Galaxy monogram blanket design",
+      "alt": "Galaxy monogram blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-021.jpg",
+      "caption": "Motivational themed custom blanket",
+      "alt": "Motivational themed custom blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-022.jpg",
+      "caption": "Bold custom name blanket design",
+      "alt": "Bold custom name blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-023.jpg",
+      "caption": "Celestial monogram blanket",
+      "alt": "Celestial monogram blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-024.jpg",
+      "caption": "St. Patrick’s Day name blanket",
+      "alt": "St. Patrick’s Day name blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-025.jpg",
+      "caption": "Personalized blue character blanket",
+      "alt": "Personalized blue character blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-026.jpg",
+      "caption": "Sunflower themed personalized art",
+      "alt": "Sunflower themed personalized art",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-027.jpg",
+      "caption": "Floral keepsake blanket design",
+      "alt": "Floral keepsake blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-028.jpg",
+      "caption": "Personalized character blanket design",
+      "alt": "Personalized character blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-029.jpg",
+      "caption": "Colorful graduation-style artwork",
+      "alt": "Colorful graduation-style artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-030.jpg",
+      "caption": "Pink unicorn school milestone design",
+      "alt": "Pink unicorn school milestone design",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-031.jpg",
+      "caption": "Pastel name graphic design",
+      "alt": "Pastel name graphic design",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-032.jpg",
+      "caption": "Personalized monogram artwork",
+      "alt": "Personalized monogram artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-036.jpg",
+      "caption": "Rainbow initial-themed keepsake",
+      "alt": "Rainbow initial-themed keepsake",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-037.jpg",
+      "caption": "Pastel Easter bunny design",
+      "alt": "Pastel Easter bunny design",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-041.jpg",
+      "caption": "Bright custom name blanket",
+      "alt": "Bright custom name blanket",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-042.jpg",
+      "caption": "Personalized bunny gift-bag design",
+      "alt": "Personalized bunny gift-bag design",
+      "collection": "Bags and accessories",
+      "category": "accessories"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-043.jpg",
+      "caption": "Easter themed custom birthday design",
+      "alt": "Easter themed custom birthday design",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-044.jpg",
+      "caption": "Floral cow illustration",
+      "alt": "Floral cow illustration",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-045.jpg",
+      "caption": "Halloween treat sign design",
+      "alt": "Halloween treat sign design",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-047.jpg",
+      "caption": "Galaxy monogram design",
+      "alt": "Galaxy monogram design",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-048.jpg",
+      "caption": "Starry monogram blanket art",
+      "alt": "Starry monogram blanket art",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-049.jpg",
+      "caption": "Celestial monogram blanket design",
+      "alt": "Celestial monogram blanket design",
+      "collection": "Blankets",
+      "category": "blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-052.jpg",
+      "caption": "Custom photo service promotional artwork",
+      "alt": "Custom photo service promotional artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-054.jpg",
+      "caption": "Sunflower custom graphic design",
+      "alt": "Sunflower custom graphic design",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-056.jpg",
+      "caption": "Sunshine Squad playful purple T-shirt",
+      "alt": "Sunshine Squad playful purple T-shirt",
+      "collection": "Sunshine Squad apparel",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-058.jpg",
+      "caption": "Fantasy themed personalized name art",
+      "alt": "Fantasy themed personalized name art",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-059.jpg",
+      "caption": "Custom dragon-themed Dad artwork",
+      "alt": "Custom dragon-themed Dad artwork",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-060.jpg",
+      "caption": "Easter storybook illustration",
+      "alt": "Easter storybook illustration",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-061.jpg",
+      "caption": "Pastel Easter greeting design",
+      "alt": "Pastel Easter greeting design",
+      "collection": "Holiday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-062.jpg",
+      "caption": "Custom animated-style name background",
+      "alt": "Custom animated-style name background",
+      "collection": "Custom designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-063.jpg",
+      "caption": "Sunshine Squad rainbow heart pattern",
+      "alt": "Sunshine Squad rainbow heart pattern",
+      "collection": "Sunshine Squad artwork",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-064.jpg",
+      "caption": "Delicate pink personalized artwork",
+      "alt": "Delicate pink personalized artwork",
+      "collection": "Personalized artwork",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-065.jpg",
+      "caption": "Sparkling birthday number design",
+      "alt": "Sparkling birthday number design",
+      "collection": "Birthday designs",
+      "category": "artwork"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-066.jpg",
+      "caption": "Sunshine Squad all-over pattern",
+      "alt": "Sunshine Squad all-over pattern",
+      "collection": "Sunshine Squad artwork",
+      "category": "sunshine"
+    },
+    {
+      "type": "image",
+      "src": "assets/gallery-067.jpg",
+      "caption": "Personalized family photo keepsake",
+      "alt": "Personalized family photo keepsake",
+      "collection": "Personalized artwork",
+      "category": "artwork"
     }
   ]
 }

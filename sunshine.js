@@ -179,157 +179,201 @@
   productContainer.addEventListener('click', e => { if (e.target.closest('button')) refreshDonation(); });
   refreshDonation();
 
-  // Main-page portfolio gallery for ALL Kaji Rose Studio work.
-  // Edit studio-gallery.json to add your own project photos and videos.
+  // CLASSIC STUDIO PORTFOLIO — separate from Sunshine Squad shopping.
+  // Metadata, captions and photo/video sources live in studio-gallery.json.
   const gallery = document.createElement('section');
-  gallery.id = 'gallery'; gallery.className = 'ss-gallery-section';
+  gallery.id = 'gallery';
+  gallery.className = 'ss-gallery-section ss-classic-gallery';
   gallery.setAttribute('aria-labelledby','ss-gallery-title');
-  gallery.innerHTML = `<div class="wrap">
-    <div class="ss-gallery-heading"><div><span class="ss-eyebrow">Made by Kaji Rose Studio</span><h2 id="ss-gallery-title">Our Work — Photo & Video Gallery</h2></div><p>Browse design and product samples across our studio, from blankets and apparel to drinkware, accessories and more. We’ll add photos and videos of finished work as they become available.</p></div>
-    <div class="ss-gallery-filters" role="group" aria-label="Filter gallery">
-      <button type="button" class="ss-gallery-filter active" data-kind="all" aria-pressed="true">All media</button>
-      <button type="button" class="ss-gallery-filter" data-kind="image" aria-pressed="false">Photos</button>
-      <button type="button" class="ss-gallery-filter" data-kind="video" aria-pressed="false">Videos</button>
+  gallery.innerHTML = `
+    <div class="wrap">
+      <div class="ss-gallery-heading">
+        <div>
+          <span class="ss-eyebrow">The Kaji Rose Studio portfolio</span>
+          <h2 id="ss-gallery-title">A little gallery of everything we make.</h2>
+        </div>
+        <p>Explore custom gifts, apparel, keepsakes, artwork, and Sunshine Squad creations. Select any project to see a larger photo or video.</p>
+      </div>
+      <div class="ss-gallery-toolbar">
+        <div class="ss-gallery-filters" role="group" aria-label="Filter work by category">
+          <button type="button" class="ss-gallery-filter active" data-gallery-category="all" aria-pressed="true">All Work</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="blankets" aria-pressed="false">Blankets</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="apparel" aria-pressed="false">Apparel</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="tumblers" aria-pressed="false">Tumblers</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="accessories" aria-pressed="false">Accessories</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="sunshine" aria-pressed="false">Sunshine Squad</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="artwork" aria-pressed="false">Art &amp; Designs</button>
+          <button type="button" class="ss-gallery-filter" data-gallery-category="videos" aria-pressed="false">Videos</button>
+        </div>
+        <p id="ssGalleryCount" class="ss-gallery-count" aria-live="polite"></p>
+      </div>
+      <div class="ss-gallery-grid" id="ssGalleryGrid"></div>
+      <p class="ss-gallery-empty" id="ssGalleryEmpty" hidden>No projects in this category yet.</p>
+      <div class="ss-gallery-more-wrap">
+        <button class="ss-gallery-more" id="ssGalleryMore" type="button" hidden>Show More Projects <span aria-hidden="true">↓</span></button>
+      </div>
     </div>
-    <div class="ss-gallery-grid" id="ssGalleryGrid" aria-live="polite"></div>
-    <p class="ss-gallery-empty" id="ssGalleryEmpty" hidden>More photos and videos are coming soon.</p>
-  </div>
-  <dialog class="ss-lightbox" id="ssLightbox" aria-label="Gallery media viewer">
-    <div class="ss-lightbox-inner"><button type="button" class="ss-lightbox-close" aria-label="Close gallery viewer">×</button><div id="ssLightboxContent"></div><p id="ssLightboxCaption"></p></div>
-  </dialog>`;
-  // Main-page studio gallery follows both product collections (not inside Sunshine Squad).
+    <dialog class="ss-lightbox" id="ssLightbox" aria-labelledby="ssLightboxCaption">
+      <div class="ss-lightbox-inner">
+        <div class="ss-viewer-header">
+          <span class="ss-viewer-counter" id="ssViewerCounter"></span>
+          <button type="button" class="ss-lightbox-close" aria-label="Close gallery viewer">×</button>
+        </div>
+        <div class="ss-viewer-stage">
+          <button class="ss-viewer-arrow ss-viewer-prev" type="button" aria-label="Previous project">‹</button>
+          <div id="ssLightboxContent"></div>
+          <button class="ss-viewer-arrow ss-viewer-next" type="button" aria-label="Next project">›</button>
+        </div>
+        <p id="ssLightboxCaption"></p>
+        <p id="ssLightboxCategory" class="ss-viewer-category"></p>
+      </div>
+    </dialog>`;
+  // Keep the whole studio gallery below BOTH stores, above How It Works.
   const galleryPlacement = document.getElementById('how') || document.querySelector('footer');
   galleryPlacement?.before(gallery);
 
   const galleryGrid = document.getElementById('ssGalleryGrid');
-  const empty = document.getElementById('ssGalleryEmpty');
+  const galleryEmpty = document.getElementById('ssGalleryEmpty');
+  const galleryCount = document.getElementById('ssGalleryCount');
+  const galleryMore = document.getElementById('ssGalleryMore');
   const viewer = document.getElementById('ssLightbox');
   const viewerContent = document.getElementById('ssLightboxContent');
   const viewerCaption = document.getElementById('ssLightboxCaption');
+  const viewerCategory = document.getElementById('ssLightboxCategory');
+  const viewerCounter = document.getElementById('ssViewerCounter');
   let galleryItems = [];
-  let selectedKind = 'all';
-  const safeSrc = src => typeof src === 'string' &&
-    /^(?!\s*(?:javascript:|data:|vbscript:))(?:(?:https?:\/\/)|(?:\.\.?\/)?[\w-][\w\-./% ]*)$/i.test(src);
-
-  function showMedia(item) {
+  let visibleItems = [];
+  let selectedCategory = 'all';
+  let shown = 16;
+  let selectedIndex = 0;
+  let viewing = false;
+  const PAGE_SIZE = 16;
+  // Only same-site assets and HTTPS image URLs; untrusted markup is never inserted.
+  const safeSrc = value => typeof value === 'string' &&
+    /^(?:assets\/[a-z0-9_./%\-]+|https:\/\/[\w.\-]+\/[a-z0-9_./%?=&\-]+)$/i.test(value) &&
+    !value.split('/').includes('..');
+  const categoryLabels = {
+    blankets:'Blankets', apparel:'Apparel', tumblers:'Tumblers',
+    accessories:'Bags & Accessories', sunshine:'Sunshine Squad',
+    artwork:'Art & Designs', videos:'Videos'
+  };
+  const photoCount = () => galleryItems.filter(item => item.type === 'image').length;
+  const videoCount = () => galleryItems.filter(item => item.type === 'video').length;
+  const matches = item => selectedCategory === 'all' ||
+    (selectedCategory === 'videos' ? item.type === 'video' : item.category === selectedCategory);
+  const make = (tag, className, text) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = String(text);
+    return el;
+  };
+  const clearViewerMedia = () => {
+    viewerContent.querySelector('video')?.pause();
     viewerContent.replaceChildren();
-    const node = document.createElement(item.type === 'video' ? 'video' : 'img');
-    node.src = item.src;
-    if (item.type === 'video') { node.controls = true; node.autoplay = true; node.playsInline = true; node.preload = 'metadata'; if (safeSrc(item.poster)) node.poster = item.poster; }
-    else node.alt = item.alt || item.caption || 'Gallery photo';
-    viewerContent.appendChild(node);
-    viewerCaption.textContent = item.caption || '';
-    if (typeof viewer.showModal === 'function') viewer.showModal();
-    else viewer.setAttribute('open', '');
+  };
+  function showMedia(index) {
+    if (!visibleItems.length) return;
+    selectedIndex = (index + visibleItems.length) % visibleItems.length;
+    const item = visibleItems[selectedIndex];
+    clearViewerMedia();
+    const element = document.createElement(item.type === 'video' ? 'video' : 'img');
+    element.src = item.src;
+    if (item.type === 'video') {
+      element.controls = true;
+      element.playsInline = true;
+      element.preload = 'metadata';
+      if (safeSrc(item.poster)) element.poster = item.poster;
+    } else element.alt = item.alt || item.caption || 'Kaji Rose Studio project';
+    viewerContent.appendChild(element);
+    viewerCaption.textContent = item.caption || 'Kaji Rose Studio project';
+    viewerCategory.textContent = categoryLabels[item.category] || 'Studio Portfolio';
+    viewerCounter.textContent = `${selectedIndex + 1} of ${visibleItems.length}`;
+    if (!viewer.open) {
+      if (typeof viewer.showModal === 'function') viewer.showModal();
+      else viewer.setAttribute('open','');
+    }
+    viewing = true;
   }
   function closeMedia() {
-    viewerContent.querySelector('video')?.pause();
     if (typeof viewer.close === 'function' && viewer.open) viewer.close();
     else viewer.removeAttribute('open');
-    viewerContent.replaceChildren();
+    clearViewerMedia();
+    viewing = false;
   }
   viewer.querySelector('.ss-lightbox-close').addEventListener('click', closeMedia);
+  viewer.querySelector('.ss-viewer-prev').addEventListener('click', () => showMedia(selectedIndex - 1));
+  viewer.querySelector('.ss-viewer-next').addEventListener('click', () => showMedia(selectedIndex + 1));
   viewer.addEventListener('click', e => { if (e.target === viewer) closeMedia(); });
-  viewer.addEventListener('close', () => viewerContent.replaceChildren());
+  viewer.addEventListener('close', () => { clearViewerMedia(); viewing = false; });
+  viewer.addEventListener('keydown', e => {
+    if (!viewing || e.target?.tagName === 'VIDEO') return;
+    if (e.key === 'ArrowLeft') { e.preventDefault(); showMedia(selectedIndex - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); showMedia(selectedIndex + 1); }
+  });
 
-  function renderGallery() {
-    galleryGrid.replaceChildren();
-    const visible = galleryItems.filter(m => selectedKind === 'all' || m.type === selectedKind);
-    empty.hidden = visible.length > 0;
-    empty.textContent = selectedKind === 'video' ? 'Studio videos are coming soon!' :
-      selectedKind === 'image' ? 'Photos will be added soon.' : 'Photos and videos will be added soon.';
-    visible.forEach(item => {
-      const button = document.createElement('button'); button.type = 'button';
-      button.className = 'ss-gallery-item'; button.setAttribute('aria-label', `Open ${item.type === 'video' ? 'video' : 'photo'}: ${item.caption || 'Gallery item'}`);
-      const preview = document.createElement('div'); preview.className = 'ss-gallery-preview';
-      if (item.type === 'image' || (item.type === 'video' && safeSrc(item.poster))) {
-        const picture = document.createElement('img');
-        picture.src = item.type === 'image' ? item.src : item.poster;
-        picture.alt = item.alt || item.caption || '';
-        picture.loading = 'lazy';
-        picture.addEventListener('error', () => { preview.classList.add('ss-media-unavailable'); picture.remove(); });
-        preview.appendChild(picture);
-      } else {
-        preview.classList.add('ss-video-preview');
-        const play = document.createElement('span'); play.textContent = '▶';
-        play.setAttribute('aria-hidden', 'true'); preview.appendChild(play);
-      }
-      if (item.type === 'video') {
-        const marker = document.createElement('span'); marker.className = 'ss-video-badge'; marker.textContent = '▶ Video'; preview.appendChild(marker);
-      }
-      const caption = document.createElement('div'); caption.className = 'ss-gallery-caption';
-      const label = document.createElement('strong'); label.textContent = item.caption || 'Studio media';
-      const origin = document.createElement('small'); origin.textContent = item.collection || 'Kaji Rose Studio';
-      caption.append(label, origin);
-      button.append(preview, caption); button.addEventListener('click', () => showMedia(item));
-      galleryGrid.appendChild(button);
-    });
+  function makeCard(item, index) {
+    const button = make('button','ss-gallery-item');
+    button.type = 'button';
+    button.setAttribute('aria-label', `View ${item.type === 'video' ? 'video' : 'photo'}: ${item.caption || 'studio project'}`);
+    const preview = make('div','ss-gallery-preview');
+    if (item.type === 'image' || safeSrc(item.poster)) {
+      const picture = document.createElement('img');
+      picture.src = item.type === 'video' ? item.poster : item.src;
+      picture.alt = item.alt || item.caption || 'Studio project';
+      picture.loading = index < 4 ? 'eager' : 'lazy';
+      picture.decoding = 'async';
+      if (index < 4) picture.fetchPriority = 'low';
+      picture.addEventListener('error', () => {
+        preview.classList.add('ss-media-unavailable'); picture.remove();
+      });
+      preview.appendChild(picture);
+    }
+    if (item.type === 'video') {
+      preview.appendChild(make('span','ss-video-badge','▶ Video'));
+      preview.appendChild(make('span','ss-gallery-play','▶'));
+    }
+    const content = make('div','ss-gallery-caption');
+    content.appendChild(make('span','ss-gallery-card-category',categoryLabels[item.category] || 'Studio Work'));
+    content.appendChild(make('strong','',item.caption || 'Kaji Rose Studio creation'));
+    button.append(preview,content);
+    button.addEventListener('click', () => showMedia(index));
+    return button;
   }
-  gallery.querySelectorAll('.ss-gallery-filter').forEach(button => button.addEventListener('click', () => {
-    selectedKind = button.dataset.kind;
-    gallery.querySelectorAll('.ss-gallery-filter').forEach(b => {
-      const active = b === button; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active));
+  function renderGallery() {
+    // A uniform grid of cards: only paint the first page and reveal more on demand.
+    visibleItems = galleryItems.filter(matches);
+    const displayed = visibleItems.slice(0,shown);
+    galleryGrid.replaceChildren(...displayed.map(makeCard));
+    galleryEmpty.hidden = visibleItems.length > 0;
+    galleryEmpty.textContent = selectedCategory === 'videos'
+      ? 'Videos will be added here as they become available.'
+      : 'More work from this category is coming soon.';
+    galleryCount.textContent = `${displayed.length} of ${visibleItems.length} projects · ${photoCount()} photos & ${videoCount()} video${videoCount() === 1 ? '' : 's'} total`;
+    galleryMore.hidden = visibleItems.length <= shown;
+    if (!galleryMore.hidden) galleryMore.textContent = `Show More Projects (${visibleItems.length-shown} remaining) ↓`;
+  }
+  gallery.querySelectorAll('[data-gallery-category]').forEach(button => button.addEventListener('click', () => {
+    selectedCategory = button.dataset.galleryCategory;
+    shown = PAGE_SIZE;
+    gallery.querySelectorAll('[data-gallery-category]').forEach(b => {
+      const active = b === button;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', String(active));
     });
     renderGallery();
   }));
+  galleryMore.addEventListener('click', () => { shown += PAGE_SIZE; renderGallery(); });
+  // If gallery data is still being uploaded, display the existing product samples.
   const fallbackGallery = [
-    {
-        "type": "image",
-        "src": "assets/product-blanket-logo.jpg",
-        "caption": "Custom blanket sample",
-        "alt": "Kaji Rose Studio custom blanket sample",
-        "collection": "Blankets"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-tumbler-logo.jpg",
-        "caption": "Personalized tumbler sample",
-        "alt": "Kaji Rose Studio tumbler sample",
-        "collection": "Drinkware"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-adult-tshirt.jpg",
-        "caption": "Custom adult T-shirt sample",
-        "alt": "Kaji Rose Studio custom adult T-shirt sample",
-        "collection": "Apparel"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-baby-onesie.jpg",
-        "caption": "Baby onesie sample",
-        "alt": "Kaji Rose Studio baby onesie sample",
-        "collection": "Baby & Kids"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-kids-tshirt.jpg",
-        "caption": "Kids T-shirt sample",
-        "alt": "Kaji Rose Studio kids T-shirt sample",
-        "collection": "Apparel"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-tote-logo.jpg",
-        "caption": "Custom tote bag sample",
-        "alt": "Kaji Rose Studio tote bag sample",
-        "collection": "Bags"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-beach-towel-logo.jpg",
-        "caption": "Personalized beach towel sample",
-        "alt": "Kaji Rose Studio beach towel sample",
-        "collection": "Accessories"
-    },
-    {
-        "type": "image",
-        "src": "assets/product-water-bottle-plastic.jpg",
-        "caption": "Water bottle sample",
-        "alt": "Kaji Rose Studio personalized water bottle sample",
-        "collection": "Drinkware"
-    }
-];
+    {type:'image',src:'assets/product-blanket-logo.jpg',caption:'Custom blanket sample',category:'blankets'},
+    {type:'image',src:'assets/product-tumbler-logo.jpg',caption:'Personalized tumbler sample',category:'tumblers'},
+    {type:'image',src:'assets/product-adult-tshirt.jpg',caption:'Custom graphic T-shirt sample',category:'apparel'},
+    {type:'image',src:'assets/product-tote-logo.jpg',caption:'Custom tote bag sample',category:'accessories'}
+  ];
+  galleryItems = fallbackGallery;
+  renderGallery();
+
+  // Preserve the original Sunshine Squad logo on every collection item.
   const logoLoader = document.createElement('img');
   logoLoader.addEventListener('load', () => {
     logoAvailable = true;
@@ -348,11 +392,22 @@
   });
   logoLoader.src = SUNSHINE_LOGO;
 
-  galleryItems = fallbackGallery;
-  renderGallery();
-  fetch('studio-gallery.json')
-    .then(response => { if (!response.ok) throw Error('Gallery file not found'); return response.json(); })
-    .then(data => { galleryItems = Array.isArray(data.items) ? data.items.filter(m =>
-      (m.type === 'image' || m.type === 'video') && safeSrc(m.src) && (!m.poster || safeSrc(m.poster))) : fallbackGallery; renderGallery(); })
-    .catch(() => { galleryItems = fallbackGallery; renderGallery(); });
+  fetch('studio-gallery.json', { cache:'no-store' })
+    .then(response => { if (!response.ok) throw new Error('Gallery file not found'); return response.json(); })
+    .then(data => {
+      if (!Array.isArray(data.items)) throw new Error('Invalid gallery data');
+      const validCategories = new Set(['blankets','apparel','tumblers','accessories','sunshine','artwork']);
+      const loaded = data.items.filter(item => item &&
+        ['image','video'].includes(item.type) && safeSrc(item.src) &&
+        (!item.poster || safeSrc(item.poster)) &&
+        validCategories.has(item.category));
+      if (!loaded.length) throw new Error('Gallery has no entries');
+      galleryItems = loaded;
+      renderGallery();
+    })
+    .catch(err => {
+      console.warn('Studio gallery unavailable; displaying built-in samples.', err);
+      galleryItems = fallbackGallery;
+      renderGallery();
+    });
 })();
