@@ -1,0 +1,53 @@
+/* Multi-item quote request cart for Kaji Rose Studio. All styles use krs-cart- prefix. */
+.krs-cart-dock{position:fixed;right:18px;bottom:18px;z-index:75;max-width:calc(100vw - 36px);border:0;border-radius:100px;padding:15px 22px;color:white;background:#78536c;box-shadow:0 8px 25px #39203445;font-weight:800;font-size:14px;cursor:pointer}
+.krs-cart-dock:hover{background:#643e57}
+.krs-cart-dock:focus-visible,.krs-cart-dialog button:focus-visible,.krs-cart-dialog input:focus-visible,.krs-cart-dialog select:focus-visible,.krs-cart-dialog textarea:focus-visible{outline:3px solid #697b56;outline-offset:3px}
+.krs-cart-dialog{width:min(760px,calc(100vw - 18px));max-height:94vh;border:0;border-radius:22px;padding:0;color:#30292b;background:#fffaf7;box-shadow:0 22px 75px #1d182059;overflow:auto}
+.krs-cart-dialog::backdrop{background:rgba(35,27,32,.65)}
+.krs-cart-body{padding:clamp(18px,3.5vw,34px)}
+.krs-cart-header{display:flex;align-items:start;justify-content:space-between;gap:16px}
+.krs-cart-eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.73rem;font-weight:800;color:#906c82}
+.krs-cart-header h2{margin:5px 0 0;font:600 clamp(2.4rem,5vw,3.4rem)/1.05 'Cormorant Garamond',Georgia,serif}
+.krs-cart-close{border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer;color:#5d4856}
+.krs-cart-intro{font-size:.94rem;line-height:1.65;margin:17px 0 23px;color:#655862}
+.krs-cart-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:16px 0;border-bottom:1px solid #eadcdf}
+.krs-cart-line-description strong{display:block;font-weight:800}
+.krs-cart-line-description p{font-size:.9rem;color:#75646c;margin:5px 0}
+.krs-cart-line-description small{display:block;font-size:.79rem;color:#7b7072;line-height:1.45;margin-top:6px;overflow-wrap:anywhere}
+.krs-cart-line-description .krs-cart-cause,.krs-cart-totals .krs-cart-cause{color:#89536f;font-weight:700}
+.krs-cart-line-actions{display:flex;align-items:flex-end;flex-direction:column;justify-content:center;gap:6px;min-width:112px}
+.krs-cart-line-actions strong{font-size:.92rem}
+.krs-cart-qty{display:flex;align-items:center;gap:8px;border:1px solid #dacbd1;border-radius:100px;background:white;padding:2px 6px}
+.krs-cart-qty button{border:0;background:transparent;min-width:25px;height:29px;cursor:pointer;font-size:1.2rem;color:#6a4d5c}
+.krs-cart-qty span{min-width:20px;text-align:center;font-weight:700}
+.krs-cart-remove{border:0;background:transparent;text-decoration:underline;font-size:.79rem;color:#83546d;cursor:pointer}
+.krs-cart-empty{padding:28px 14px;text-align:center;border:1px dashed #d9c1cb;border-radius:14px;color:#765d6a}
+.krs-cart-totals{display:flex;flex-direction:column;gap:8px;padding:19px 0;border-bottom:1px solid #e9dfe3}
+.krs-cart-totals strong{font-size:1.05rem}
+.krs-cart-totals small{line-height:1.55;color:#71636b}
+#krsQuoteForm h3{font:600 1.85rem/1.1 'Cormorant Garamond',Georgia,serif;margin:23px 0 14px}
+.krs-cart-fields{display:grid;gap:15px;margin:12px 0}
+.krs-cart-fields.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.krs-cart-fields .wide{grid-column:1 / -1}
+.krs-cart-dialog label{display:flex;flex-direction:column;gap:7px;font-size:.83rem;font-weight:700;color:#54444c}
+.krs-cart-dialog input:not([type=checkbox]),.krs-cart-dialog select,.krs-cart-dialog textarea{background:white;width:100%;min-width:0;border:1px solid #d6c7ca;border-radius:10px;font:400 1rem Inter,system-ui,sans-serif;min-height:42px;padding:10px;color:#30292b}
+.krs-ship-fieldset{border:1px solid #e4d5d8;border-radius:13px;padding:10px 14px 0;margin:14px 0 18px}
+.krs-ship-fieldset[hidden]{display:none}
+.krs-ship-fieldset legend{font-weight:800;font-size:.9rem;color:#76556b;padding:0 5px}
+.krs-cart-note-label{margin:15px 0}
+.krs-cart-dialog .krs-cart-confirm{display:flex;flex-direction:row;align-items:flex-start;gap:10px;margin:20px 0;font-weight:500;line-height:1.55}
+.krs-cart-confirm input{width:19px;height:19px;margin:2px 0;flex:none}
+.krs-cart-privacy{font-size:.77rem;color:#807179;line-height:1.5}
+.krs-cart-dialog .krs-trap{position:absolute!important;left:-99999px!important;width:1px!important;height:1px!important;opacity:0;pointer-events:none}
+.krs-cart-actions{display:flex;justify-content:flex-end;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.krs-cart-primary,.krs-cart-secondary{border-radius:100px;border:1px solid #795269;padding:12px 18px;font-weight:800;cursor:pointer}
+.krs-cart-primary{background:#795269;color:#fff}
+.krs-cart-secondary{background:#fff;color:#795269}
+.krs-cart-primary:disabled{opacity:.55;cursor:not-allowed}
+.krs-cart-status{line-height:1.55;color:#5d4f58}
+.krs-cart-status:not(:empty){border-radius:12px;background:#f7eaf1;padding:15px;margin:17px 0}
+.krs-cart-status.success{background:#eef2e7;color:#3d593c}
+.krs-cart-status.error{background:#fff0f1;color:#7b3b47}
+.krs-cart-status .krs-fallback-textarea{margin:10px 0}
+.krs-cart-mailto{display:inline-block;color:#824560;text-decoration:underline;margin:8px}
+@media(max-width:600px){.krs-cart-dialog{width:calc(100vw - 12px);max-height:98vh;border-radius:15px}.krs-cart-line{grid-template-columns:1fr}.krs-cart-line-actions{align-items:center;justify-content:space-between;flex-direction:row}.krs-cart-fields.two{grid-template-columns:1fr}.krs-cart-dock{bottom:10px;right:10px;padding:12px 15px;font-size:12px}.krs-cart-actions{flex-direction:column}.krs-cart-actions>*{width:100%}}

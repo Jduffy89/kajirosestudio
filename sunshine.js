@@ -131,7 +131,7 @@
     price.textContent = minPrice == null ? 'Price on request' :
       (new Set(numericPrices).size > 1 ? 'From ' : '') + `$${minPrice}`;
     const button = document.createElement('button'); button.type = 'button';
-    button.className = 'ss-button ss-product-action'; button.textContent = 'Request item';
+    button.className = 'ss-button ss-product-action'; button.textContent = 'Customize & Add';
     button.addEventListener('click', () => openCustomizer(p.id));
     bottom.append(price, button); content.append(heading, description, bottom);
     card.append(illustration, content); productContainer.appendChild(card);
@@ -178,19 +178,6 @@
   document.querySelectorAll('[data-open-customizer]').forEach(b => b.addEventListener('click', refreshDonation));
   productContainer.addEventListener('click', e => { if (e.target.closest('button')) refreshDonation(); });
   refreshDonation();
-
-  // The existing summary generator includes "Additional design notes". Add the pledge to
-  // Sunshine requests before that generator runs so Messenger receives the donation amount.
-  // Restore the customer's own notes in a microtask; no lasting form mutation.
-  requestForm?.addEventListener('submit', () => {
-    if (!sunshineIds.has(productSelect?.value)) return;
-    const notes = document.getElementById('designNotes');
-    if (!notes) return;
-    const original = notes.value;
-    const qty = Math.max(1, Math.floor(Number(quantityInput?.value) || 1));
-    notes.value = `${original}${original ? '\n\n' : ''}SUNSHINE SQUAD ARTWORK: Use the official Sunshine Squad logo on this item.\nSUNSHINE SQUAD DONATION: At least $${5 * qty} ($5 × ${qty} items) is included in the listed price; there is no extra charge. Donation is allocated by Kaji Rose Studio for purchased items.`;
-    queueMicrotask(() => { notes.value = original; });
-  }, true);
 
   // Main-page portfolio gallery for ALL Kaji Rose Studio work.
   // Edit studio-gallery.json to add your own project photos and videos.

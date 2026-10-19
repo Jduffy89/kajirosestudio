@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="sunshine.css" />
+  <link rel="stylesheet" href="cart.css" />
 </head>
 <body>
   <div class="announcement">Fully custom creations • Final approval & signed terms before payment</div>
@@ -34,7 +35,7 @@
     <div class="home-hero-grid">
       <div class="home-hero-copy">
 <h1>Every design <span class="hero-accent">tells a story.</span></h1>
-        <p>Fully customizable blankets, apparel, drinkware, bags, and gifts. Build your request here, then send your photos and artwork to Kaji Rose Studio through Facebook Messenger.</p>
+        <p>Fully customizable blankets, apparel, drinkware, bags, and gifts. Add multiple personalized items to your cart and request one final quote including shipping. Artwork can still be shared through Messenger.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#products">Shop Products</a>
           <button class="btn btn-primary" type="button" data-open-customizer>Start Customizing</button>
@@ -54,7 +55,7 @@
       </div>
     </section>
 <section class="section" id="products"><div class="wrap">
-      <div class="section-heading"><div><span class="eyebrow">Customize a product</span><h2>Choose what you want to customize</h2></div><p>Every item can be personalized. Choose a product and option, preview your idea, and send the request summary through Messenger.</p></div>
+      <div class="section-heading"><div><span class="eyebrow">Customize a product</span><h2>Choose what you want to customize</h2></div><p>Personalize each item, add it to your cart, then send the entire request by email for a final quote with shipping.</p></div>
 <div class="filters" role="group" aria-label="Product category filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="blankets">Blankets</button><button class="filter" data-filter="clothing">Clothing</button><button class="filter" data-filter="drinkware">Drinkware</button><button class="filter" data-filter="bags">Bags</button><button class="filter" data-filter="accessories">Accessories</button><button class="filter" data-filter="other">Other</button></div>
       <div class="product-grid" id="productGrid"></div>
     </div></section>
@@ -62,8 +63,8 @@
     <section class="section soft" id="how"><div class="wrap">
       <div class="section-heading center"><div><span class="eyebrow">Custom order process</span><h2>From your idea to production</h2></div></div>
       <div class="steps six">
-        <article><span>1</span><h3>Choose & customize</h3><p>Select your item, size, quantity, text, colors, and design notes.</p></article>
-        <article><span>2</span><h3>Send photos</h3><p>Continue to Facebook Messenger and send your photos/artwork with the generated request number.</p></article>
+        <article><span>1</span><h3>Choose & customize</h3><p>Choose each item, option, quantity and design details; add as many as you like to the request cart.</p></article>
+        <article><span>2</span><h3>Send photos</h3><p>Review your entire cart and email one request with your contact and shipping details.</p></article>
         <article><span>3</span><h3>Design concepts</h3><p>Kaji Rose Studio creates at least two original concepts. Choose one and request up to two reasonable revision rounds.</p></article>
         <article><span>4</span><h3>Approve proof</h3><p>Carefully review spelling, dates, personalization, image placement, and the final proof.</p></article>
         <article><span>5</span><h3>Sign & pay</h3><p>Accept the Terms & Conditions and electronically sign. Payment is submitted after acceptance.</p></article>
@@ -72,14 +73,14 @@
     </div></section>
 
     <section class="section" id="custom"><div class="wrap custom-banner custom-banner-clean">
-      <div><span class="eyebrow">Create something personal</span><h2>Your photos. Your text. Your idea.</h2><p>Use the customizer to share your ideas and prepare an order summary. Photos and artwork are sent directly to Kaji Rose Studio through Messenger after your request is prepared.</p><button class="btn btn-primary" data-open-customizer>Open Customizer</button></div>
+      <div><span class="eyebrow">Create something personal</span><h2>Your photos. Your text. Your idea.</h2><p>Customize multiple items in one request cart. Send the combined list by email for a quote including shipping; any original artwork can be shared through Messenger afterward.</p><button class="btn btn-primary" data-open-customizer>Open Customizer</button></div>
 </div></section>
 
     <section class="section soft" id="faq"><div class="wrap faq-grid">
       <div><span class="eyebrow">FAQ</span><h2>Before you submit</h2><p>Custom orders are reviewed and proofed before production.</p></div>
       <div class="faq-list">
-        <details open><summary>Do I pay when I send my design request?</summary><p>No. First you submit the request and photos. After the design process, you approve the final proof, sign the Terms & Conditions, and then submit payment.</p></details>
-        <details><summary>How do I send my photos?</summary><p>Photos and artwork are sent directly to Kaji Rose Studio through Facebook Messenger with your request number.</p></details>
+        <details open><summary>Do I pay when I send my design request?</summary><p>No. No. Add products to a request cart and email your list to Kaji Rose Studio. Kaji will confirm the final price including shipping, then you can review proofs, accept the terms, and pay before production.</p></details>
+        <details><summary>How do I send my photos?</summary><p>You can describe your design in the item customizer. Kaji Rose Studio can arrange for you to send original photos or artwork through Messenger after receiving your emailed request.</p></details>
         <details><summary>How many design options and revisions are included?</summary><p>Each custom order includes at least two original design concepts, selection of one final design, and up to two rounds of reasonable revisions before production.</p></details>
         <details><summary>When will I see my design?</summary><p>After you send your request and any photos or artwork through Messenger, Kaji Rose Studio will prepare design concepts for you to review. The final proof must be approved before payment and production.</p></details>
         <details><summary>When does production begin?</summary><p>Production begins after final design approval, electronic acceptance of the Terms & Conditions, and payment.</p></details>
@@ -158,14 +159,15 @@
         <div class="field-grid two"><label>Your name<input type="text" id="customerName" name="customerName" required /></label><label>Email<input type="email" id="customerEmail" name="email" required /></label></div>
         <label>Phone (optional)<input type="tel" id="customerPhone" name="phone" /></label>
         <label class="check-row"><input type="checkbox" id="rightsConfirm" required /><span>I confirm that I have permission or the necessary rights to use any photos, artwork, logos, or other materials I send through Messenger.</span></label>
-        <label class="check-row"><input type="checkbox" id="processConfirm" required /><span>I understand this is a design request, not a paid order. I will send any photos or artwork directly through Messenger and will not pay until I approve the final design and accept the Terms & Conditions.</span></label>
+        <label class="check-row"><input type="checkbox" id="processConfirm" required /><span>I understand I am adding an item to a quote-request cart, not placing a paid order. Kaji Rose Studio will confirm the final price including shipping before payment. I may be asked to send artwork through Messenger.</span></label>
         <div class="form-status" id="formStatus" aria-live="polite"></div>
-        <button class="btn btn-primary wide" type="submit">Prepare Request & Continue to Messenger</button>
-        <p class="tech-note">The site copies your order summary and opens the Kaji Rose Studio Facebook Page/Messenger link once that Page URL is configured in <code>script.js</code>.</p>
+        <button class="btn btn-primary wide" type="submit">Add Item to Request Cart</button>
+        <p class="tech-note">Add products to your request cart, then submit your entire list for a quote by email. No payment is collected. Kaji Rose Studio may request original artwork through Messenger.</p>
       </form>
     </div>
   </section>
   <script src="script.js"></script>
   <script src="sunshine.js"></script>
+  <script src="cart.js"></script>
 </body>
 </html>
