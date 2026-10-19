@@ -18,10 +18,7 @@ html { scroll-behavior: smooth; }
 .ss-sun-ring::after { content:''; position: absolute; inset: -17px; border: 1px solid #dfb571; border-radius: 50%; }
 .ss-sun-ring span { font-size: 6.9rem; line-height: 1.1; }
 .ss-sun-ring small { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.7rem; line-height: 1.1; text-align: center; font-weight: 700; }
-.ss-commitment { margin: 23px 0 55px; display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid #ecddcb; padding: 20px 23px; border-radius: 19px; }
-.ss-commitment > span { font-size: 2rem; color: #a36585; }
-.ss-commitment strong { font-weight: 800; font-size: 1.04rem; }
-.ss-commitment p { color: #706169; margin: 4px 0 0; font-size: .9rem; line-height: 1.45; }
+.ss-collection-head { margin-top: 44px; }
 .ss-collection-head, .ss-gallery-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
 .ss-collection-head h3,.ss-gallery-heading h2 { margin: 7px 0 0; font: 600 clamp(2.5rem,3.7vw,3.7rem)/1 'Cormorant Garamond',Georgia,serif; }
 .ss-collection-head p,.ss-gallery-heading p { max-width: 385px; font-size: .96rem; line-height: 1.55; margin: 0; color: #766a6a; }
@@ -66,8 +63,8 @@ html { scroll-behavior: smooth; }
 #ssLightboxCaption { text-align:center; color:#64515b; margin:11px 0 0; }
 @media (max-width:1030px) { .ss-products {grid-template-columns: repeat(2,minmax(0,1fr));} .ss-gallery-grid {grid-template-columns: repeat(3,minmax(0,1fr));} }
 @media (max-width:880px) { .main-nav { gap: 8px !important; } .main-nav a { font-size: 12px; } .ss-hero { grid-template-columns: 1fr; } .ss-sun-art { min-height:230px; } .ss-sun-ring { width:220px; } .ss-sun-ring span { font-size:4.5rem; } }
-@media (max-width:760px) { .ss-section { padding: 35px 0 47px; } .ss-hero { padding: 29px 21px; } .ss-hero h2 {font-size:3.45rem;} .ss-gallery-section {padding:48px 0;} .ss-collection-head,.ss-gallery-heading {display:block;} .ss-collection-head p,.ss-gallery-heading p {margin-top:12px;} .ss-gallery-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
-@media (max-width:580px) { .ss-products,.ss-gallery-grid {grid-template-columns:1fr;} .ss-product-illustration {height:160px;} .ss-gallery-preview {height:240px;} .ss-commitment {align-items:flex-start;padding:17px;} .ss-sun-art {min-height:195px;} }
+@media (max-width:760px) { .ss-collection-head {margin-top:32px;} .ss-section { padding: 35px 0 47px; } .ss-hero { padding: 29px 21px; } .ss-hero h2 {font-size:3.45rem;} .ss-gallery-section {padding:48px 0;} .ss-collection-head,.ss-gallery-heading {display:block;} .ss-collection-head p,.ss-gallery-heading p {margin-top:12px;} .ss-gallery-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:580px) { .ss-products,.ss-gallery-grid {grid-template-columns:1fr;} .ss-product-illustration {height:160px;} .ss-gallery-preview {height:240px;} .ss-sun-art {min-height:195px;} }
 @media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} .ss-button,.ss-gallery-preview img {transition:none;} }
 
 /* Official Sunshine Squad logo — shown unchanged on every collection card. */

@@ -37,6 +37,21 @@
   ];
   const sunshineIds = new Set(sunshineProducts.map(item => item.id));
   sunshineProducts.forEach(item => { if (!products.some(p => p.id === item.id)) products.push(item); });
+
+  // Sunshine Squad has its own complete collection below the regular shop.
+  // Keep products in the shared customizer, but do not repeat their cards
+  // inside the general store's "All" listing.
+  const renderStoreProducts = renderProducts;
+  renderProducts = function(filter = 'all') {
+    renderStoreProducts(filter);
+    if (filter === 'all') {
+      document.querySelectorAll('#productGrid [data-product-id]').forEach(button => {
+        if (sunshineIds.has(button.dataset.productId)) {
+          button.closest('.product-card')?.remove();
+        }
+      });
+    }
+  };
   populateProductSelect();
   renderProducts();
   updateVariants();
@@ -83,12 +98,12 @@
         </div>
         <div class="ss-sun-art"><div class="ss-sun-ring"><img class="ss-hero-logo" src="assets/sunshine-squad-logo.png" alt="Sunshine Squad official logo" hidden /><div class="ss-logo-fallback" aria-hidden="true"><span>☀</span><small>Spread a little<br>sunshine</small></div></div></div>
       </div>
-      <div class="ss-commitment" role="note"><span aria-hidden="true">♡</span><div><strong>At least $5 from every Sunshine Squad item</strong><p>Already included in the listed price. No extra donation fee is added at checkout or when you request your item.</p></div></div>
       <div class="ss-collection-head" id="ss-collection"><div><span class="ss-eyebrow">Shop for a cause</span><h3>Sunshine Squad merchandise</h3></div><p>Choose an item below to prepare your request with Kaji Rose Studio.</p></div>
       <div class="ss-products" id="ssProducts"></div>
     </div>`;
   const existingProducts = document.getElementById('products');
-  if (existingProducts) existingProducts.before(section);
+  // Regular store products first, then the Sunshine Squad collection.
+  if (existingProducts) existingProducts.after(section);
 
   const productContainer = document.getElementById('ssProducts');
   sunshineProducts.forEach((p, index) => {
@@ -121,20 +136,6 @@
     bottom.append(price, button); content.append(heading, description, bottom);
     card.append(illustration, content); productContainer.appendChild(card);
   });
-
-  // Add Sunshine Squad to the existing category filter as well.
-  const filters = document.querySelector('.filters');
-  if (filters && !filters.querySelector('[data-filter="sunshine"]')) {
-    const filter = document.createElement('button'); filter.type = 'button';
-    filter.className = 'filter'; filter.dataset.filter = 'sunshine';
-    filter.textContent = '☀ Sunshine Squad';
-    const all = filters.querySelector('[data-filter="all"]');
-    (all || filters.lastElementChild)?.after(filter);
-    filter.addEventListener('click', () => {
-      filters.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-      filter.classList.add('active'); renderProducts('sunshine');
-    });
-  }
 
   // Let the customer see the minimum donation allocation for the chosen quantity.
   const requestForm = document.getElementById('requestForm');
@@ -209,7 +210,7 @@
   <dialog class="ss-lightbox" id="ssLightbox" aria-label="Gallery media viewer">
     <div class="ss-lightbox-inner"><button type="button" class="ss-lightbox-close" aria-label="Close gallery viewer">×</button><div id="ssLightboxContent"></div><p id="ssLightboxCaption"></p></div>
   </dialog>`;
-  // Prominent on the MAIN PAGE, right below the shop section—not inside Sunshine Squad.
+  // Main-page studio gallery follows both product collections (not inside Sunshine Squad).
   const galleryPlacement = document.getElementById('how') || document.querySelector('footer');
   galleryPlacement?.before(gallery);
 
