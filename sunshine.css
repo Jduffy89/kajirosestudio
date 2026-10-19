@@ -1,0 +1,83 @@
+/* Sunshine Squad extension styles — scoped to ss- classes to preserve the site. */
+html { scroll-behavior: smooth; }
+#sunshine, #ss-collection, #gallery, #products { scroll-margin-top: 95px; }
+.ss-section { padding: 60px 0 72px; background: #fffdf7; color: #43373c; }
+.ss-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(230px,.8fr); gap: 34px; align-items: center; border-radius: 30px; padding: clamp(28px,4.5vw,64px); background: linear-gradient(120deg,#fef0ce 0%,#fff5e3 47%,#f8e7f0 100%); border: 1px solid #f5dfb8; box-shadow: 0 13px 36px rgba(120,89,36,.05); }
+.ss-eyebrow { color: #926528; font-size: .76rem; text-transform: uppercase; font-weight: 800; letter-spacing: .17em; }
+.ss-hero h2 { margin: 13px 0 18px; font: 600 clamp(3.25rem,5vw,5.4rem)/.95 'Cormorant Garamond',Georgia,serif; letter-spacing: -.025em; }
+.ss-hero h2 em { color: #a06785; font-weight: 600; font-style: normal; }
+.ss-hero p { max-width: 680px; font-size: 1.04rem; line-height: 1.75; color: #554c4c; }
+.ss-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 23px; }
+.ss-button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; appearance: none; border-radius: 100px; border: 1px solid #a66d88; font: 700 .91rem/1.1 Inter,sans-serif; text-decoration: none; padding: 13px 19px; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+.ss-button:hover { transform: translateY(-2px); box-shadow: 0 5px 13px rgba(110,63,86,.1); }
+.ss-button:focus-visible,.ss-gallery-filter:focus-visible,.ss-gallery-item:focus-visible { outline: 3px solid #6b7f57; outline-offset: 3px; }
+.ss-button-primary,.ss-product-action { background: #86556e; color: #fff; }
+.ss-button-secondary { color: #86556e; background: #fffdf8; }
+.ss-sun-art { display: grid; place-items: center; min-height: 300px; }
+.ss-sun-ring { width: clamp(215px,23vw,295px); aspect-ratio: 1; border-radius: 50%; border: 2px dashed #edbf6e; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; background: radial-gradient(circle,#fffaf1 0 52%,#fff1ca 53% 72%,#ffe8ac 73%); color: #a46f20; transform: rotate(-6deg); }
+.ss-sun-ring::after { content:''; position: absolute; inset: -17px; border: 1px solid #dfb571; border-radius: 50%; }
+.ss-sun-ring span { font-size: 6.9rem; line-height: 1.1; }
+.ss-sun-ring small { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.7rem; line-height: 1.1; text-align: center; font-weight: 700; }
+.ss-commitment { margin: 23px 0 55px; display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid #ecddcb; padding: 20px 23px; border-radius: 19px; }
+.ss-commitment > span { font-size: 2rem; color: #a36585; }
+.ss-commitment strong { font-weight: 800; font-size: 1.04rem; }
+.ss-commitment p { color: #706169; margin: 4px 0 0; font-size: .9rem; line-height: 1.45; }
+.ss-collection-head, .ss-gallery-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+.ss-collection-head h3,.ss-gallery-heading h2 { margin: 7px 0 0; font: 600 clamp(2.5rem,3.7vw,3.7rem)/1 'Cormorant Garamond',Georgia,serif; }
+.ss-collection-head p,.ss-gallery-heading p { max-width: 385px; font-size: .96rem; line-height: 1.55; margin: 0; color: #766a6a; }
+.ss-products { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.ss-product-card { background: white; border: 1px solid #eee1de; border-radius: 21px; overflow: hidden; display:flex; flex-direction:column; box-shadow: 0 9px 22px rgba(91,66,75,.04); }
+.ss-product-illustration { display: grid; place-items: center; height: 180px; position:relative; overflow:hidden; }
+.ss-product-illustration::before { content:'☀'; position:absolute; right:14px; top:9px; font-size:2rem; color:#ac8746; opacity:.45; }
+.ss-product-illustration span { filter: drop-shadow(0 6px 9px rgba(45,25,39,.13)); font-size: 5.3rem; z-index: 1; }
+.ss-palette-0 { background: linear-gradient(135deg,#f5d9e7,#dfc4da); } .ss-palette-1 { background: linear-gradient(135deg,#d9d1f3,#a1cde5); }
+.ss-palette-2 { background: linear-gradient(135deg,#fde1bd,#fff1d9); } .ss-palette-3 { background: linear-gradient(135deg,#efdeef,#edd4ca); }
+.ss-palette-4 { background: linear-gradient(135deg,#e6e6be,#fff0d7); } .ss-palette-5 { background: linear-gradient(135deg,#dcead8,#e9def3); }
+.ss-product-content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.ss-product-content h4 { font: 600 1.76rem/1.04 'Cormorant Garamond',Georgia,serif; margin: 0 0 10px; }
+.ss-product-content p { color: #776b70; font-size: .87rem; line-height: 1.6; margin: 0 0 18px; flex: 1; }
+.ss-product-bottom { border-top: 1px solid #f1e8e4; padding-top: 17px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.ss-product-bottom strong { white-space: nowrap; font-size: 1.06rem; }
+.ss-product-action { font-size: .8rem; padding: 10px 14px; border: 1px solid #86556e; }
+.ss-form-donation { padding: 14px 16px; border-radius: 12px; color: #6c4670; background: #faf0fc; border:1px solid #e9d8f0; font-weight: 700; line-height: 1.5; }
+.ss-form-donation[hidden] { display: none; }
+.ss-gallery-section { background: #fdf8f6; padding: 70px 0 84px; }
+.ss-gallery-filters { display: flex; flex-wrap:wrap; gap: 9px; margin-bottom: 27px; }
+.ss-gallery-filter { padding: 10px 18px; border-radius: 99px; border: 1px solid #d6c5c6; color: #765366; font-weight: 700; background: white; cursor: pointer; }
+.ss-gallery-filter.active { background: #86556e; color: #fff; border-color: #86556e; }
+.ss-gallery-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
+.ss-gallery-item { background: #fff; border: 1px solid #ecdfde; border-radius: 17px; overflow: hidden; padding: 0; display: flex; flex-direction: column; text-align: left; cursor: pointer; color: inherit; }
+.ss-gallery-item:hover .ss-gallery-preview img { transform: scale(1.045); }
+.ss-gallery-preview { height: 190px; width: 100%; overflow: hidden; position: relative; background: linear-gradient(125deg,#efdfde,#eed5dc); display: grid; place-items:center; }
+.ss-gallery-preview img { width: 100%; height:100%; object-fit: cover; transition: transform .3s; }
+.ss-gallery-preview.ss-media-unavailable::before { content:'Photo will be added soon'; color:#866f7a; padding:20px; }
+.ss-video-preview > span:not(.ss-video-badge) { display:grid;place-items:center;width:65px;height:65px;border-radius:50%;background:#fff9;color:#81516b;font-size:2rem; }
+.ss-video-badge { position: absolute; top: 12px; right: 12px; background: #86556e; border-radius: 40px; color: #fff; padding: 6px 10px; font-size: .7rem; font-weight:700; }
+.ss-gallery-caption { display: flex; flex-direction: column; gap: 5px; padding: 16px; }
+.ss-gallery-caption strong { font-size: .89rem; line-height: 1.4; }
+.ss-gallery-caption small { font-size: .76rem; color: #9b7f88; }
+.ss-gallery-empty { text-align:center; color:#77606c; background:white; border: 1px dashed #d6b6c4; padding: 39px 15px; border-radius:18px; }
+.ss-lightbox { padding: 0; border: none; border-radius: 17px; width: min(90vw,950px); max-height: 90vh; background: #fff; box-shadow: 0 15px 70px #16131c77; }
+.ss-lightbox::backdrop { background: rgba(26,21,28,.85); }
+.ss-lightbox-inner { padding: 19px; position: relative; }
+.ss-lightbox-close { float:right; font-size: 2rem; border: none; color: #593f4d; background: transparent; cursor:pointer; margin: 0 4px 6px; }
+#ssLightboxContent { clear: both; }
+#ssLightboxContent img, #ssLightboxContent video { max-width:100%; max-height: min(72vh,740px); margin:0 auto; display:block; object-fit:contain; }
+#ssLightboxCaption { text-align:center; color:#64515b; margin:11px 0 0; }
+@media (max-width:1030px) { .ss-products {grid-template-columns: repeat(2,minmax(0,1fr));} .ss-gallery-grid {grid-template-columns: repeat(3,minmax(0,1fr));} }
+@media (max-width:880px) { .main-nav { gap: 8px !important; } .main-nav a { font-size: 12px; } .ss-hero { grid-template-columns: 1fr; } .ss-sun-art { min-height:230px; } .ss-sun-ring { width:220px; } .ss-sun-ring span { font-size:4.5rem; } }
+@media (max-width:760px) { .ss-section { padding: 35px 0 47px; } .ss-hero { padding: 29px 21px; } .ss-hero h2 {font-size:3.45rem;} .ss-gallery-section {padding:48px 0;} .ss-collection-head,.ss-gallery-heading {display:block;} .ss-collection-head p,.ss-gallery-heading p {margin-top:12px;} .ss-gallery-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:580px) { .ss-products,.ss-gallery-grid {grid-template-columns:1fr;} .ss-product-illustration {height:160px;} .ss-gallery-preview {height:240px;} .ss-commitment {align-items:flex-start;padding:17px;} .ss-sun-art {min-height:195px;} }
+@media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} .ss-button,.ss-gallery-preview img {transition:none;} }
+
+/* Official Sunshine Squad logo — shown unchanged on every collection card. */
+.ss-sun-ring .ss-hero-logo { width: 78%; max-height: 76%; height: auto; object-fit: contain; display: block; transform: rotate(6deg); filter: drop-shadow(0 4px 10px #ad7b4f22); }
+.ss-sun-ring .ss-hero-logo[hidden], .ss-item-logo[hidden], .ss-logo-notice img[hidden], .ss-product-illustration span[hidden] { display:none; }
+.ss-logo-fallback { display: flex; flex-direction: column; align-items: center; }
+.ss-item-logo { z-index: 2; max-width: 78%; max-height: 144px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 3px 7px #30203020); }
+.ss-product-illustration .ss-item-logo { filter: drop-shadow(0 3px 7px #30203020); }
+#productGrid .product-card:has(.product-photo[src="assets/sunshine-squad-logo.png"]) .product-photo { object-fit: contain; padding: 20px; }
+.ss-logo-notice { display: flex; align-items:center; gap: 10px; padding: 12px 16px; border: 1px solid #ead5ba; border-radius: 12px; background: #fffcf1; font-size: .86rem; color: #654f41; }
+.ss-logo-notice img { width: 57px; max-height: 55px; object-fit: contain; }
+.ss-logo-notice[hidden] { display: none; }
+@media(max-width:760px) { .ss-item-logo {max-height:118px;} }

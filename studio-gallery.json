@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "type": "image",
+      "src": "assets/product-blanket-logo.jpg",
+      "caption": "Custom blanket sample",
+      "alt": "Kaji Rose Studio custom blanket sample",
+      "collection": "Blankets"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-tumbler-logo.jpg",
+      "caption": "Personalized tumbler sample",
+      "alt": "Kaji Rose Studio tumbler sample",
+      "collection": "Drinkware"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-adult-tshirt.jpg",
+      "caption": "Custom adult T-shirt sample",
+      "alt": "Kaji Rose Studio custom adult T-shirt sample",
+      "collection": "Apparel"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-baby-onesie.jpg",
+      "caption": "Baby onesie sample",
+      "alt": "Kaji Rose Studio baby onesie sample",
+      "collection": "Baby & Kids"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-kids-tshirt.jpg",
+      "caption": "Kids T-shirt sample",
+      "alt": "Kaji Rose Studio kids T-shirt sample",
+      "collection": "Apparel"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-tote-logo.jpg",
+      "caption": "Custom tote bag sample",
+      "alt": "Kaji Rose Studio tote bag sample",
+      "collection": "Bags"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-beach-towel-logo.jpg",
+      "caption": "Personalized beach towel sample",
+      "alt": "Kaji Rose Studio beach towel sample",
+      "collection": "Accessories"
+    },
+    {
+      "type": "image",
+      "src": "assets/product-water-bottle-plastic.jpg",
+      "caption": "Water bottle sample",
+      "alt": "Kaji Rose Studio personalized water bottle sample",
+      "collection": "Drinkware"
+    }
+  ]
+}
